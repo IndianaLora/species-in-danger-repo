@@ -2,12 +2,30 @@
   margin: 0;
   padding: 0;
 }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  font-size: 1.3125rem;
+}
 header {
+  display: flex;
+  flex-flow: column;
   background-image: url("./img/headerBackground.jpg");
   background-position: center;
   background-size: cover;
-  min-width: 100vh;
   height: 400px;
+}
+
+@media (min-width: 320px) {
+  header img {
+    display: block;
+    max-width: 100%;
+  }
 }
 header > h1 {
   text-align: center;
@@ -30,10 +48,22 @@ header > h1 {
 .navbarItem {
   padding: 16px 16px;
   cursor: pointer;
-  vertical-align: middle;
   text-decoration: none;
   color: rgb(247, 243, 243);
 }
+@media (max-width: 320px) {
+  div.navbarTitle {
+    padding: 12px 5px;
+    color: #000;
+  }
+}
+@media (max-width: 320px) {
+  div.navbarItem {
+    margin-top: 50%;
+    position: absolute;
+  }
+}
+
 /* study this line */
 div a {
   -webkit-transition: all 500ms ease;
@@ -47,7 +77,7 @@ div a:hover {
 .cards {
   margin: 5rem auto;
   width: 280px;
-  height: 400px;
+  height: auto;
   text-align: center;
   font-family: "Times New Roman", Times, serif;
   border-radius: 5%;
@@ -59,7 +89,8 @@ div a:hover {
   font-family: "Times New Roman", Times, serif;
 }
 .card-image {
-  width: 278px;
+  display: block;
+  max-width: 100%;
 }
 .about-container {
   min-height: 500px;
